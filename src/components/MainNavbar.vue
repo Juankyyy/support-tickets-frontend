@@ -9,7 +9,9 @@
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                     
                     <li><router-link to="/" :class="{ active: $route.path === '/' }" class="mb-1">Mis Tickets</router-link></li>
-                    <li><a>Item 3</a></li>
+                    <!-- <li><a>Item 3</a></li> -->
+                    
+                    <DarkMode v-if="isMobile" />
                 </ul>
             </div>
 
@@ -18,11 +20,12 @@
             <div class="hidden md:flex">
                 <ul class="menu menu-horizontal px-1">
                     <li><router-link to="/" :class="{ active: $route.path === '/' }" class="mr-1">Mis Tickets</router-link></li>
-                    <li><a>Item 3</a></li>
+                    <!-- <li><a>Item 3</a></li> -->
+
+                    <DarkMode />
                 </ul>
             </div>
         </div>
-
 
         <div class="navbar-end">
             <router-link to="/" class="btn btn-success mr-5 btn-sm sm:btn-md">Crear nuevo Ticket</router-link>
@@ -35,5 +38,8 @@
 </template>
 
 <script setup>
+    import DarkMode from './DarkMode.vue';
+    import { ref } from 'vue';
 
+    const isMobile = ref(window.innerWidth < 768);
 </script>

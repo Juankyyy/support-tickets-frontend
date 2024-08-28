@@ -18,16 +18,20 @@
 </template>
 
 <script setup>
+
 </script>
 
 <style scoped>
 .content {
-    background-color: #101112;
-    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
+    height: 100dvh; 
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
 }
 
 form {
