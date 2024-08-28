@@ -1,10 +1,13 @@
 <template>
     <MainNavbar v-if="!['/login'].includes($route.path)" />
-    <router-view />
+
+    <transition name="fade" mode="out-in">
+        <router-view />
+    </transition>
 </template>
 
 <script setup>
-import MainNavbar from './components/MainNavbar.vue';
+    import MainNavbar from './components/MainNavbar.vue';
 </script>
 
 <style>
@@ -19,5 +22,13 @@ import MainNavbar from './components/MainNavbar.vue';
     
     * {
         font-family: 'Manrope Variable';
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.3s ease;
+    }
+
+    .fade-enter-from, .fade-leave-to {
+        opacity: 0;
     }
 </style>
