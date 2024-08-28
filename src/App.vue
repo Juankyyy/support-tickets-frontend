@@ -1,5 +1,5 @@
 <template>
-    <MainNavbar />
+    <MainNavbar v-if="!['/login'].includes($route.path)" />
     <router-view />
 </template>
 
