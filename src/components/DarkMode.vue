@@ -24,6 +24,11 @@
         theme.value = newTheme;
     }
     
+    function toggleTheme () {
+        const newTheme = theme.value == "dark" ? "light" : "dark";
+        applyTheme(newTheme);
+    }
+    
     onMounted(() => {
         const checkbox = document.querySelector("#theme-changer");
 
@@ -42,22 +47,6 @@
             sun.classList.add("swap-off");
             moon.classList.add("swap-on");
         }
-        
-        checkbox.addEventListener("change", () => {
-            console.log(checkbox);
-
-            // if (theme == "dark") {
-            //     localStorage.setItem("Theme", "light")
-            //     document.documentElement.setAttribute('data-theme', "light");
-            // } else {
-            //     localStorage.setItem("Theme", "dark")
-            //     document.documentElement.setAttribute('data-theme', "dark");
-            // }
-        });
     })
 
-    function toggleTheme () {
-        const newTheme = theme.value == "dark" ? "light" : "dark";
-        applyTheme(newTheme);
-    }
 </script>

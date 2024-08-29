@@ -12,14 +12,16 @@
                 <input type="password" class="grow" v-model="password" id="userPassword" placeholder="123456"/>
             </label>
 
-            <button id="userSubmit" class="btn btn-success w-full font-bold">Iniciar Sesión</button>
+            <button @click.prevent="authUser" class="btn btn-success w-full font-bold">Iniciar Sesión</button>
         </div>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+
+    const urlLogin = "http://localhost:5056/api/auth";
 
     // Enrutador
     const router = useRouter();
@@ -32,49 +34,43 @@
     const emailError = ref(false);
     const passwordError = ref(false);
 
-    const urlLogin = "http://localhost:5056/api/auth";
+    const authUser = async () => {
+        emailError.value = false;
+        passwordError.value = false;
 
-    onMounted(() => {
-        const submit = document.querySelector("#userSubmit")
-
-        submit.addEventListener("click", () => {
-            emailError.value = false;
-            passwordError.value = false;
-
-            try {
-                const data = {
-                    email: email.value,
-                    password: password.value
-                }
-
-                fetch(urlLogin, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(r => r.json()).then((d) => {
-                    if (d.error) {
-                        if (d.error.includes("Email")) {
-                            emailError.value = true;
-                            passwordError.value = true;
-                        }
-    
-                        if (d.error.includes("Password")) {
-                            passwordError.value = true;
-                        }
-                    } else {
-                        router.push("/");
-                    }
-                })
-
-            } catch (err) {
-                console.error(`Error fetchLogin: ${err}`);
+        try {
+            const data = {
+                email: email.value,
+                password: password.value
             }
-        })
-    })
 
+            const response = await fetch(urlLogin, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+            const d = await response.json();
+            
+            if (!response.ok) {
+                if (d.error.includes("Email")) {
+                    emailError.value = true;
+                    passwordError.value = true;
+                } else if (d.error.includes("Password")) {
+                    passwordError.value = true;
+                }
+            }
+
+            if (response.ok) {
+                router.push("/");
+            }
+
+        } catch (err) {
+            console.error(`Error fetchLogin: ${err}`);
+        }
+    }
 </script>
 
 <style scoped>
