@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Imports de Views
+import HomePage from "@/views/HomePage.vue";
 import LoginPage from "@/views/LoginPage.vue";
 
 // Rutas para las Views
 const routes = [
+    {
+        name: "HomePage",
+        path: "/",
+        component: HomePage,
+        meta: { title: "Home" }
+    },
     {
         name: "LoginPage",
         path: "/login",

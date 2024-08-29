@@ -1,5 +1,5 @@
 <template>
-    <label class="swap swap-rotate m-1">
+    <label class="swap swap-rotate ml-3">
         <!-- this hidden checkbox controls the state -->
         <input type="checkbox" id="theme-changer" class="theme-controller" value="dark" @click="toggleTheme" />
 
