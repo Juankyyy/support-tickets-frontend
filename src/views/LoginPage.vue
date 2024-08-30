@@ -47,23 +47,33 @@
         emailError.value = false;
         passwordError.value = false;
 
-        isLoading.value = true;
-        const res = await authService.login(email, password);
-        
-        if (res) {
-            isLoading.value = false;
-            if (!res.ok) {
-                if (res.error.includes("Email")) {
-                    emailError.value = true;
-                    passwordError.value = true;
-                } else if (res.error.includes("Password")) {
-                    passwordError.value = true;
+        if (email.value == "" && password.value == "") {
+            emailError.value = true;
+            passwordError.value = true;
+        } else if (email.value == "") {
+            emailError.value = true;
+        } else if (password.value == "") {
+            passwordError.value = true;
+            
+        } else {
+            isLoading.value = true;
+            const res = await authService.login(email, password);
+            
+            if (res) {
+                isLoading.value = false;
+                if (!res.ok) {
+                    if (res.error.includes("Email")) {
+                        emailError.value = true;
+                        passwordError.value = true;
+                    } else if (res.error.includes("Password")) {
+                        passwordError.value = true;
+                    }
+                } else {
+                    router.push("/");
                 }
             } else {
-                router.push("/");
+                console.log("Error Fetch");
             }
-        } else {
-            console.log("Error Fetch");
         }
     }
 </script>
