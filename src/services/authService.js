@@ -30,6 +30,14 @@ const authService = {
         } catch (err) {
             console.error(`Error fetch login: ${err}`);
         }
+    },
+
+    logout () {
+        const cookies = $cookies.keys();
+
+        cookies.forEach(cookie => {
+            $cookies.remove(cookie)
+        });
     }
 }
 
