@@ -12,7 +12,7 @@
                 <input type="password" class="grow" v-model="password" id="userPassword" placeholder="123456"/>
             </label>
 
-            <button @click.prevent="authUser" class="btn btn-success w-full font-bold">Iniciar Sesión</button>
+            <button @click.prevent="handleLogin" class="btn btn-success w-full font-bold">Iniciar Sesión</button>
         </div>
     </div>
 </template>
@@ -20,8 +20,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
-
-    const urlLogin = "http://localhost:5056/api/auth";
+    import authService from '@/services/authService';
 
     // Enrutador
     const router = useRouter();
@@ -34,41 +33,25 @@
     const emailError = ref(false);
     const passwordError = ref(false);
 
-    const authUser = async () => {
+    const handleLogin = async () => {
         emailError.value = false;
         passwordError.value = false;
 
-        try {
-            const data = {
-                email: email.value,
-                password: password.value
-            }
-
-            const response = await fetch(urlLogin, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-
-            const d = await response.json();
-            
-            if (!response.ok) {
-                if (d.error.includes("Email")) {
+        const res = await authService.login(email, password);
+        
+        if (res) {
+            if (!res.ok) {
+                if (res.error.includes("Email")) {
                     emailError.value = true;
                     passwordError.value = true;
-                } else if (d.error.includes("Password")) {
+                } else if (res.error.includes("Password")) {
                     passwordError.value = true;
                 }
-            }
-
-            if (response.ok) {
+            } else {
                 router.push("/");
             }
-
-        } catch (err) {
-            console.error(`Error fetchLogin: ${err}`);
+        } else {
+            console.log("Error Fetch");
         }
     }
 </script>
