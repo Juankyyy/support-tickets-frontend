@@ -1,3 +1,4 @@
+// import VueCookies from 'vue-cookies';
 
 const authService = {
     async login(email, password) {
@@ -7,7 +8,8 @@ const authService = {
             const res = await fetch(url, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept" : "application/json"
                 },
                 body: JSON.stringify({
                     email: email.value,
@@ -20,6 +22,9 @@ const authService = {
             if (!res.ok) {
                 return { ok: false, error: d.error }
             } else {
+                $cookies.set("auth", true);
+                $cookies.set("user", d.name);
+
                 return { ok: true }
             }
         } catch (err) {
