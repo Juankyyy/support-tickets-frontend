@@ -1,5 +1,9 @@
 <template>
     <div class="content">
+        <header>
+            <DarkMode />
+        </header>
+
         <div class="form">
             <router-link to="/" class="btn btn-ghost btn-active text-2xl mb-3">Support Tickets</router-link>
             <label :class="{ 'input-error': emailError }" class="input sm:w-96 input-bordered flex items-center gap-2">
@@ -12,7 +16,10 @@
                 <input type="password" class="grow" v-model="password" id="userPassword" placeholder="123456"/>
             </label>
 
-            <button @click.prevent="handleLogin" class="btn btn-success w-full font-bold">Iniciar Sesión</button>
+            <button @click.prevent="handleLogin" class="btn btn-success w-full font-bold">
+                <span v-if="isLoading" class="loading loading-spinner"></span>
+                <span v-else>Iniciar Sesión</span>
+            </button>
         </div>
     </div>
 </template>
@@ -20,6 +27,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import DarkMode from '@/components/DarkMode.vue';
     import authService from '@/services/authService';
 
     // Enrutador
@@ -33,13 +41,17 @@
     const emailError = ref(false);
     const passwordError = ref(false);
 
+    const isLoading = ref(false);
+
     const handleLogin = async () => {
         emailError.value = false;
         passwordError.value = false;
 
+        isLoading.value = true;
         const res = await authService.login(email, password);
         
         if (res) {
+            isLoading.value = false;
             if (!res.ok) {
                 if (res.error.includes("Email")) {
                     emailError.value = true;
@@ -57,6 +69,12 @@
 </script>
 
 <style scoped>
+    header {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
     .content {
         display: flex;
         justify-content: center;

@@ -1,11 +1,13 @@
 <template>
-    <transition name="fade" mode="out-in" @before-enter="disableScroll" @after-enter="enableScroll">
-        <MainNavbar class="navbar" v-if="!['/login'].includes($route.path)" />
-    </transition>
+    <div v-if="!['/login'].includes($route.path)">
+        <transition name="fade" @before-enter="disableScroll" @after-enter="enableScroll">
+            <MainNavbar />
+        </transition>
+    </div>
 
     
     <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in" @before-enter="disableScroll" @after-enter="enableScroll">
+        <transition name="fade" @before-enter="disableScroll" @after-enter="enableScroll">
             <component :is="Component" />
         </transition>
     </router-view>
@@ -37,7 +39,6 @@
         document.body.style.overflow = '';
     };
 
-    // Si deseas asegurar que el scroll se reinicie cuando se desmonte el componente:
     onUnmounted(() => {
         enableScroll();
     });

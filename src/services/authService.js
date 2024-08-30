@@ -1,5 +1,3 @@
-// import VueCookies from 'vue-cookies';
-
 const authService = {
     async login(email, password) {
         const url = "http://localhost:5056/api/auth";
