@@ -1,6 +1,6 @@
 const authService = {
     async login(email, password) {
-        const url = "http://localhost:5056/api/auth";
+        const url = "http://support-tickets.somee.com/api/auth";
 
         try {
             const res = await fetch(url, {
