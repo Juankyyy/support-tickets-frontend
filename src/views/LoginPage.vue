@@ -4,14 +4,14 @@
             <DarkMode />
         </header>
 
-        <div class="form">
+        <form class="form">
             <LoginForm v-if="isLogin" />
             <SignupForm v-if="!isLogin" />
             
             <p @click.prevent="changeForm" class="self-start link link-hover text-slate-500">
                 {{ isLogin ? 'Registrarse' : 'Login' }}
             </p>
-        </div>
+        </form>
     </div>
 </template>
 
