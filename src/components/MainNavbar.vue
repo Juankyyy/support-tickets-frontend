@@ -27,7 +27,7 @@
         </div>
 
         <div class="navbar-end">
-            <router-link to="/" class="btn btn-success mr-5 btn-sm sm:btn-md">Crear nuevo Ticket</router-link>
+            <router-link to="/" class="btn btn-success mr-2 md:mr-5 btn-sm sm:btn-md">Nuevo Ticket</router-link>
             
             <router-link to="/login" @click.prevent="authService.Logout" class="btn btn-error btn-sm sm:btn-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14"><path fill="#1d222b" fill-rule="evenodd" d="M0 1.5A1.5 1.5 0 0 1 1.5 0h7A1.5 1.5 0 0 1 10 1.5v1.939a2 2 0 0 0-.734 1.311H5.75a2.25 2.25 0 1 0 0 4.5h3.516A2 2 0 0 0 10 10.561V12.5A1.5 1.5 0 0 1 8.5 14h-7A1.5 1.5 0 0 1 0 12.5zm10.963 2.807A.75.75 0 0 0 10.5 5v1H5.75a1 1 0 0 0 0 2h4.75v1a.75.75 0 0 0 1.28.53l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-.817-.163" clip-rule="evenodd"/></svg>

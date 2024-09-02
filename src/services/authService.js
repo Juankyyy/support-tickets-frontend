@@ -22,6 +22,7 @@ const authService = {
             } else {
                 $cookies.set("auth", true);
                 $cookies.set("user", d.name);
+                $cookies.set("userId", d.id);
 
                 return { ok: true }
             }

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-10">
+    <div class="container px-3 mx-auto">
         <h1>Home</h1>
         <p>Hola, {{ user }}</p>
     </div>
