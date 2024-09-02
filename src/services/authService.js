@@ -1,5 +1,5 @@
 const authService = {
-    async login(email, password) {
+    async Login(email, password) {
         const url = "http://support-tickets.somee.com/api/auth";
 
         try {
