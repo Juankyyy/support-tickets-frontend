@@ -3,7 +3,7 @@
         <p>Hola, {{ user }}</p>
         <h1 class="text-4xl">Mis tickets</h1>
 
-        <div class="container flex flex-wrap justify-center gap-3 mt-3 sm:flex-nowrap sm:justify-normal">
+        <div class="container flex flex-wrap justify-center gap-3 mt-3  xl:justify-normal">
             <CardTicket v-for="ticket in tickets" :key="ticket.id" :data="ticket" />
             <p v-if="tickets == null">No tienes tickets</p>
         </div>
