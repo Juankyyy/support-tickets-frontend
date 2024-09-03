@@ -13,18 +13,52 @@
 
 > 😎 Ya no es necesario realizar estos pasos para usar **Support Tickets** <br>
 
-Si quieres ejecutar la plataforma en entorno de desarrollo sigue los siguientes pasos
+Si quieres ejecutar la plataforma en entorno de desarrollo sigue los siguientes pasos <br>
 
 ### Ejecutar API
 
 > 💡 Para poder iniciar el proyecto es necesario tener instalado [.NET](https://dotnet.microsoft.com/es-es/download)
 
-- Ir al repositorio [Support-Tickets-BackEnd](https://github.com/Juankyyy/support-tickets-backend) y clonarlo
-- Ir a la raíz ./support-tickets-backend
-- Abrir la terminal y ejecutar el siguiente comando:
+- Clonar el repositorio:
 
-```bash
-dotnet run
-```
+    ```bash
+    git clone https://github.com/Juankyyy/support-tickets-backend.git
+    ```
 
-###  Ahora sí, dale [Click Aquí](https://supporttickets.vercel.app/)
+- Ir a la raíz:
+
+    ```bash
+    cd support-tickets-backend
+    ```
+
+- Ejecutar proyecto:
+
+    ```bash
+    dotnet run
+    ```
+
+### Ejecutar Proyecto Vue
+
+- Clonar repositorio:
+
+    ```bash
+    https://github.com/Juankyyy/support-tickets-backend.git
+    ```
+
+- Ir a la raíz ./support-tickets-frontend
+
+    ```bash
+    cd support-tickets-frontend
+    ```
+
+- Cambiar de rama a **develop**:
+
+    ```bash
+    git checkout develop
+    ```
+
+- Ejecutar proyecto:
+
+    ```bash
+    npm run serve -- --open
+    ```
