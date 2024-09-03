@@ -2,7 +2,7 @@ const ticketService = {
     // Tickets del usuario
     async GetMyTickets() {
         const userId = $cookies.get("userId");
-        const url = `http://localhost:5056/api/tickets/user/${userId}`;
+        const url = `https://support-tickets.somee.com/api/tickets/user/${userId}`;
 
         try {
             const res = await fetch(url, {

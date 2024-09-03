@@ -1,6 +1,7 @@
+// Certificado SSL en somee hasta el 2/12/2024.
 const authService = {
     async Login(email, password) {
-        const url = "http://localhost:5056/api/auth";
+        const url = "https://support-tickets.somee.com/api/auth";
 
         try {
             const res = await fetch(url, {
@@ -40,7 +41,7 @@ const authService = {
     },
 
     async Signup (name, email, password) {
-        const url = "http://localhost:5056/api/users";
+        const url = "https://support-tickets.somee.com/api/users";
 
         try {
             const res = await fetch(url, {
