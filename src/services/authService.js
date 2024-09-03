@@ -1,4 +1,4 @@
-// Certificado SSL en somee hasta el 2/12/2024
+// Certificado SSL en somee hasta el 2/12/2024.
 const authService = {
     async Login(email, password) {
         const url = "https://support-tickets.somee.com/api/auth";
