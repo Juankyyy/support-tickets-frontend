@@ -1,13 +1,13 @@
 <template>
     <div v-if="!['/login'].includes($route.path)">
-        <transition name="fade" @before-enter="disableScroll" @after-enter="enableScroll">
+        <transition name="fade" mode="out-in" @before-enter="disableScroll" @after-enter="enableScroll">
             <MainNavbar />
         </transition>
     </div>
 
     
     <router-view v-slot="{ Component }">
-        <transition name="fade" @before-enter="disableScroll" @after-enter="enableScroll">
+        <transition name="fade" mode="out-in" @before-enter="disableScroll" @after-enter="enableScroll">
             <component :is="Component" />
         </transition>
     </router-view>
