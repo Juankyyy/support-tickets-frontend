@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // Imports de Views
 import HomePage from "@/views/HomePage.vue";
 import LoginPage from "@/views/LoginPage.vue";
+import NewTicketPage from "@/views/NewTicketPage.vue";
 
 // Rutas para las Views
 const routes = [
@@ -22,6 +23,15 @@ const routes = [
         meta: {
             title: "Login",
             requireAuth: false,
+        }
+    },
+    {
+        name: "NewTicketPage",
+        path: "/new-ticket",
+        component: NewTicketPage,
+        meta: {
+            title: "Nuevo Ticket",
+            requireAuth: true,
         }
     }
 ]
