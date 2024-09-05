@@ -40,15 +40,3 @@
         handleMyTickets();
     });
 </script>
-
-<style scoped>
-    .arrow {
-        transform: rotate(135deg) scaleX(-1);
-    }
-
-    @media (max-width: 768px) {
-        .arrow {
-            transform: rotate(109deg) scaleX(-1);
-        }
-    }
-</style>
