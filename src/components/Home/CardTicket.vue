@@ -10,7 +10,7 @@
                 <div v-if="props.data.category == 'General'" title="Problemas generales" class="badge badge-success">{{ props.data.category }}</div>
                 <div v-if="props.data.category == 'Web'" title="Problemas relacionados a páginas webs" class="badge badge-info">{{ props.data.category }}</div>
                 <div v-if="props.data.category == 'Sistema'" title="Problemas del sistema operativo" class="badge badge-error">{{ props.data.category }}</div>
-                <div v-if="props.data.category == 'Sugerencias'" title="Sugerencias sobre algún tema o sobre nuestra web" class="badge badge-accent">{{ props.data.category }}</div>
+                <div v-if="props.data.category == 'Sugerencias'" title="Sugerencias sobre esta página web" class="badge badge-accent">{{ props.data.category }}</div>
 
                 <!-- Status -->
                 <div v-if="props.data.status == 'Solved'" title="Solucionado" class="badge badge-success">Solucionado</div>
