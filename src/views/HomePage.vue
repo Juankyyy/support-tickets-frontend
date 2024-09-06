@@ -1,7 +1,7 @@
 <template>
     <div class="container px-3 mx-auto">
         <p>Hola, {{ user }}</p>
-        <h1 v-if="tickets" class="text-3xl">Mis tickets</h1>
+        <h1 v-if="tickets && !isLoading" class="text-3xl">Mis tickets</h1>
 
         <div class="container flex flex-wrap justify-center gap-3 mt-7  xl:justify-normal relative">
             <!-- Skeletons -->
@@ -40,15 +40,3 @@
         handleMyTickets();
     });
 </script>
-
-<style scoped>
-    .arrow {
-        transform: rotate(135deg) scaleX(-1);
-    }
-
-    @media (max-width: 768px) {
-        .arrow {
-            transform: rotate(109deg) scaleX(-1);
-        }
-    }
-</style>
