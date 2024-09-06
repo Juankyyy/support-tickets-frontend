@@ -18,9 +18,15 @@
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref } from 'vue';
     import { useRouter } from 'vue-router';
     import authService from '@/services/authService';
+    import { Notyf } from 'notyf';
+
+    // NotyF
+    const notyf = new Notyf({
+        duration: 2000
+    });
 
     // Enrutador
     const router = useRouter();
@@ -50,9 +56,11 @@
                 isLoading.value = false;
                 if (!res.ok) {
                     if (res.error.includes("Email")) {
+                        notyf.error("Correo y contraseña incorrectos");
                         emailError.value = true;
                         passwordError.value = true;
                     } else if (res.error.includes("Password")) {
+                        notyf.error("Contraseña incorrecta");
                         passwordError.value = true;
                     }
                 } else {
@@ -63,12 +71,6 @@
             }
         }
     }
-
-    const input = ref(null);
-
-    onMounted(() => {
-        input.value.focus();
-    });
 </script>
 
 <style>
