@@ -23,8 +23,14 @@
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref } from 'vue';
     import authService from '@/services/authService';
+    import { Notyf } from 'notyf';
+
+    // NotyF
+    const notyf = new Notyf({
+        duration: 2000
+    });
 
     // Variables reactivas
     const name = ref("");
@@ -55,6 +61,7 @@
                 isLoading.value = false;
                 if (!res.ok) {
                     if (res.error.includes("Email")) {
+                        notyf.error("Este email ya está en uso");
                         emailError.value = true;
                     }
                 } else {
@@ -63,12 +70,6 @@
             }
         }
     }
-
-    const input = ref(null);
-
-    onMounted(() => {
-        input.value.focus();
-    });
 </script>
 
 <style scoped>

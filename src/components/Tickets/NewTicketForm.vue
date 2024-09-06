@@ -29,6 +29,12 @@
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
     import ticketService from '@/services/ticketsService';
+    import { Notyf } from 'notyf';
+
+    // NotyF
+    const notyf = new Notyf({
+        duration: 2000
+    });
 
     const router = useRouter();
     const isLoading = ref(false);
@@ -54,12 +60,12 @@
 
         if (title.value.length < 5) {
             titleError.value = true;
-            console.log("El título debe tener al menos 5 caracteres");
+            notyf.error("El título debe tener al menos 5 caracteres");
         }
 
         if (description.value.length < 5) {
             descriptionError.value = true;
-            console.log("La descripción debe tener al menos 5 caracteres");
+            notyf.error("La descripción debe tener al menos 5 caracteres");
         }
 
         if (!categoryError.value && !titleError.value && !descriptionError.value) {
@@ -70,7 +76,7 @@
                 isLoading.value = false;
 
                 if(!res.ok) {
-                    alert("Error al crear el ticket");
+                    notyf.error("Error al crear el ticket");
                 } else {
                     router.push("/");
                 }
