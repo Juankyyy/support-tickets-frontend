@@ -19,19 +19,19 @@ Si quieres ejecutar la plataforma en entorno de desarrollo sigue los siguientes 
 
 > 💡 Para poder iniciar el proyecto es necesario tener instalado [.NET](https://dotnet.microsoft.com/es-es/download)
 
-- Clonar el repositorio:
+- Clonar el repositorio
 
     ```bash
     git clone https://github.com/Juankyyy/support-tickets-backend.git
     ```
 
-- Ir a la raíz:
+- Ir a la raíz
 
     ```bash
     cd support-tickets-backend
     ```
 
-- Ejecutar proyecto:
+- Ejecutar proyecto
 
     ```bash
     dotnet run
@@ -39,7 +39,7 @@ Si quieres ejecutar la plataforma en entorno de desarrollo sigue los siguientes 
 
 ### Ejecutar Proyecto Vue
 
-- Clonar repositorio:
+- Clonar repositorio
 
     ```bash
     https://github.com/Juankyyy/support-tickets-backend.git
@@ -51,13 +51,19 @@ Si quieres ejecutar la plataforma en entorno de desarrollo sigue los siguientes 
     cd support-tickets-frontend
     ```
 
-- Cambiar de rama a **develop**:
+- Cambiar de rama a **develop**
 
     ```bash
     git checkout develop
     ```
 
-- Ejecutar proyecto:
+- Instalar dependencias
+
+    ```bash
+    npm install
+    ```
+
+- Ejecutar proyecto
 
     ```bash
     npm run serve -- --open
