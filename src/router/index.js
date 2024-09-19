@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import LoginPage from "@/views/LoginPage.vue";
 import NewTicketPage from "@/views/NewTicketPage.vue";
+import TicketPage from "@/views/TicketPage.vue";
 
 // Rutas para las Views
 const routes = [
@@ -31,6 +32,15 @@ const routes = [
         component: NewTicketPage,
         meta: {
             title: "Nuevo Ticket",
+            requireAuth: true,
+        }
+    },
+    {
+        name: "TicketPage",
+        path: "/ticket/:id",
+        component: TicketPage,
+        meta: {
+            title: "Ticket",
             requireAuth: true,
         }
     }

@@ -21,9 +21,9 @@
             <p class="overflow-hidden text-ellipsis line-clamp-1 sm:line-clamp-2" :title="props.data.description">{{ props.data.description }}</p>
             
             <div class="card-actions justify-center">
-                <button v-if="props.data.status == 'Solved'" class="btn btn-sm sm:btn-md sm:btn-block w-5/6 btn-success shadow-slate-400 shadow-md">Ver Respuesta</button>
-                <button v-else-if="props.data.status == 'Unsolvable'" class="btn btn-sm sm:btn-md w-5/6 sm:btn-block btn-error shadow-slate-400 shadow-md">Editar Ticket</button>
-                <button v-else class="btn btn-sm sm:btn-md w-5/6 sm:btn-block btn-info shadow-slate-400 shadow-md">Ver</button>
+                <router-link :to="`/Ticket/${ props.data.id }`" v-if="props.data.status == 'Solved'" class="btn btn-sm sm:btn-md sm:btn-block w-5/6 btn-success shadow-slate-400 shadow-md">Ver Respuesta</router-link>
+                <router-link :to="`/Ticket/${ props.data.id }`" v-else-if="props.data.status == 'Unsolvable'" class="btn btn-sm sm:btn-md w-5/6 sm:btn-block btn-error shadow-slate-400 shadow-md">Editar Ticket</router-link>
+                <router-link :to="`/Ticket/${ props.data.id }`" v-else class="btn btn-sm sm:btn-md w-5/6 sm:btn-block btn-info shadow-slate-400 shadow-md">Ver</router-link>
             </div>
         </div>
     </div>
