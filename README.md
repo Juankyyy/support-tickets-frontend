@@ -2,12 +2,7 @@
 
 **Support Tickets** es una plataforma en la cual puedes crear tickets de soporte fácilmente, con el objetivo de solucionar cualquier problema. Envía tu solicitud, sigue su progreso y obtén respuestas del equipo.
 
-[Sitio web Oficial](https://supporttickets.vercel.app/)
-
-<br>
-
-> [!WARNING] 
-> Actualmente el sitio web está en desarrollo.
+[Sitio web](https://supporttickets.vercel.app/)
 
 ## Configuración 🛠️
 
