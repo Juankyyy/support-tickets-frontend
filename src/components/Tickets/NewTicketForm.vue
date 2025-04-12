@@ -5,7 +5,7 @@
             <option value="General">Problemas Generales</option>
             <option value="Web">Problemas sobre el navegador o alguna página web</option>
             <option value="Sistema">Problemas sobre el Sistema operativo</option>
-            <option value="Sugerencia">Sugerencias o feedback sobre nuestra página web</option>
+            <option value="Sugerencias">Sugerencias o feedback sobre nuestra página web</option>
         </select>
 
         <div :class="{ 'input-error': titleError }" class="input input-bordered flex items-center w-full max-w-md">
